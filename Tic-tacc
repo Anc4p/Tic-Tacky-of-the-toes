@@ -6,7 +6,7 @@ using namespace std;
 
 void menu()
 {
-  int menuOption;
+  int menuOption = 0;
   
   while (menuOption != 4)
   {
