@@ -4,7 +4,7 @@ using namespace std;
 
 void menu()
 {
-	int menuOption = 0;
+	int menuOption;
 
 	while (menuOption != 4)
 	{
@@ -15,14 +15,11 @@ void menu()
 		cout << "3. Display version info" << endl;
 		cout << "4. Exit the program" << endl;
 		cin >> menuOption;
-		
+	}
 	switch (menuOption)
 	{
-	case 1:
-	{
-		cout << "The game is setup in a 3x3 grid full of smaller 3x3 grids." << endl;
-		cout << "Two players will alternate turns, each picking squares within the grids." << endl;
-	}
+	case 1: cout << "The game is setup in a 3x3 grid full of smaller 3x3 grids." << endl;
+			cout << "Two players will alternate turns, each picking squares within the grids." << endl;
 		break;
 	case 2:
 		break;
@@ -34,10 +31,6 @@ void menu()
 		break;
 	default:
 	}
-	
-	}
-
-
 }
 
 int main()
