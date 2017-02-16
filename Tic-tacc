@@ -19,7 +19,7 @@ void menu()
 		{
 			switch (menuOption)
 			{
-			case 1: 
+			case 1:
 				cout << "The game is setup in a 3x3 grid full of smaller 3x3 grids." << endl;
 				cout << "Two players will alternate turns, each picking squares within the grids." << endl;
 				cout << "One player chooses to use X and the other O" << endl;
@@ -39,12 +39,11 @@ void menu()
 		}
 		else
 		{
-			cout << "Error: Invalid Chocie" << endl;
+			cout << "Error: Invalid Choice" << endl;
 			cout << "Please enter a valid choice: " << endl;
+			menu();
 		}
 	}
-
-
 }
 
 int main()
