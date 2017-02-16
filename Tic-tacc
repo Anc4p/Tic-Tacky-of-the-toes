@@ -2,27 +2,34 @@
 
 using namespace std;
 
+void menuText()
+{
+	cout << "Welcome to Tic-Tacky-of-the-Toes" << endl;
+	cout << "Choose one of the following options:" << endl;
+	cout << "1. Display Instructions" << endl;
+	cout << "2. Start Game" << endl;
+	cout << "3. Display version info" << endl;
+	cout << "4. Display the main menu" << endl;
+	cout << "5. Exit the program" << endl;
+}
+
 void menu()
 {
 	int menuOption = 0;
 
+	menuText();
+
 	while (menuOption != 4)
 	{
-		cout << "Welcome to Tic-Tacky-of-the-Toes" << endl;
-		cout << "Choose one of the following options:" << endl;
-		cout << "1. Display Instructions" << endl;
-		cout << "2. Start Game" << endl;
-		cout << "3. Display version info" << endl;
-		cout << "4. Exit the program" << endl;
+
 		cin >> menuOption;
-		if (menuOption == 1 || menuOption == 2 || menuOption == 3)
+		if (menuOption > 0 && menuOption < 6)
 		{
 			switch (menuOption)
 			{
 			case 1:
 				cout << "The game is setup in a 3x3 grid full of smaller 3x3 grids." << endl;
 				cout << "Two players will alternate turns, each picking squares within the grids." << endl;
-				cout << "One player chooses to use X and the other O" << endl;
 				cout << "When a player successfully, linearly fills 3 spaces in the larger grid, that player wins" << endl;
 				break;
 			case 2:
@@ -31,19 +38,23 @@ void menu()
 				cout << "Version 0.01 Last Updated:2/15/17" << endl;
 				break;
 			case 4:
+				menuText();
+				break;
+			case 5:
 				return;
 				break;
 			default:
+				cout << "Error: Invalid Chocie" << endl;
+				cout << "Please enter a valid choice: " << endl;
+				//cin >> menuOption;
 				break;
 			}
 		}
-		else
-		{
-			cout << "Error: Invalid Choice" << endl;
-			cout << "Please enter a valid choice: " << endl;
-			menu();
-		}
+		
+		
 	}
+
+
 }
 
 int main()
