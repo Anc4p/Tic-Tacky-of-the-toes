@@ -15,8 +15,7 @@ void menu()
 		cout << "3. Display version info" << endl;
 		cout << "4. Exit the program" << endl;
 		cin >> menuOption;
-	}
-
+		
 	switch (menuOption)
 	{
 	case 1:
@@ -31,6 +30,10 @@ void menu()
 		break;
 	default:
 	}
+	
+	}
+
+
 }
 
 int main()
