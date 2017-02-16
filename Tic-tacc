@@ -14,7 +14,7 @@ void menu()
     cout << "2. Start Game" << endl;
     cout << "3. Display version info" << endl;
     cout << "4. Exit the program" << endl;
-    cin << menuOption
+    cin >> menuOption
   }
   switch (menuOption)
   {
