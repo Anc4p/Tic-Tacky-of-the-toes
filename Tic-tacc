@@ -31,12 +31,17 @@ void gameControl()
 void menu()
 {
 	int menuOption = 0;
-	
+
 	menuText();
-	
+
 	while (menuOption != 5)
 	{
 		cin >> menuOption;
+		if (cin.fail())
+		{
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 		switch (menuOption)
 		{
 		case 1:
@@ -58,7 +63,7 @@ void menu()
 			return;
 			break;
 		default:
-			cout << "Error: Invalid Chocie" << endl;
+			cout << "Error: Invalid Choice" << endl;
 			cout << "Please enter a valid choice: " << endl;
 			break;
 		}
