@@ -16,11 +16,12 @@ void menu()
     cout << "2. Start Game" << endl;
     cout << "3. Display version info" << endl;
     cout << "4. Exit the program" << endl;
-    cin >> menuOption
+    cin >> menuOption;
   }
   switch (menuOption)
   {
-  case 1:
+  case 1: cout << "The game is setup in a 3x3 grid full of smaller 3x3 grids." << endl;
+		cout << "Two players will alternate turns, each picking squares within the grids." << endl;
   }
 }
 
