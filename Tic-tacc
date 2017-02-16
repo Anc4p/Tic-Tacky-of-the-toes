@@ -19,6 +19,10 @@ void menu()
 	switch (menuOption)
 	{
 	case 1:
+	{
+		cout << "The game is setup in a 3x3 grid full of smaller 3x3 grids." << endl;
+		cout << "Two players will alternate turns, each picking squares within the grids." << endl;
+	}
 		break;
 	case 2:
 		break;
