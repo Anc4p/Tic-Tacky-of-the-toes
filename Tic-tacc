@@ -2,6 +2,18 @@
 
 using namespace std;
 
+void menuText();
+void menu();
+void gameControl();
+
+
+
+int main()
+{
+	menu();
+	return 0;
+}
+
 void menuText()
 {
 	cout << "Welcome to Tic-Tacky-of-the-Toes" << endl;
@@ -43,9 +55,6 @@ void menu()
 				return;
 				break;
 			default:
-				cout << "Error: Invalid Chocie" << endl;
-				cout << "Please enter a valid choice: " << endl;
-				cin >> menuOption;
 				break;
 			}
 		}
@@ -55,10 +64,4 @@ void menu()
 			cout << "Please enter a valid choice: " << endl;
 		}
 	}
-}
-
-int main()
-{
-	menu();
-	return 0;
 }
