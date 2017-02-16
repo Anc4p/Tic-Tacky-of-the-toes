@@ -6,8 +6,6 @@ void menuText();
 void menu();
 void gameControl();
 
-
-
 int main()
 {
 	menu();
@@ -45,8 +43,7 @@ void menu()
 				break;
 			case 2:
 				break;
-			case 3:
-				cout << "Version 0.01 Last Updated:2/15/17" << endl;
+			case 3: cout << "Version 0.01 Last Updated:2/15/17" << endl;
 				break;
 			case 4:
 				menuText();
