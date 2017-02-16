@@ -50,6 +50,12 @@ void menu()
 				break;
 			}
 		}
+		else
+		{
+			cout << "Error: Invalid Chocie" << endl;
+			cout << "Please enter a valid choice: " << endl;
+			cin >> menuOption
+		}
 		
 		
 	}
