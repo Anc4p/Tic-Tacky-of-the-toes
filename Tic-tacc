@@ -22,6 +22,8 @@ void menu()
 			case 1: 
 				cout << "The game is setup in a 3x3 grid full of smaller 3x3 grids." << endl;
 				cout << "Two players will alternate turns, each picking squares within the grids." << endl;
+				cout << "One player chooses to use X and the other O" << endl;
+				cout << "When a player successfully, linearly fills 3 spaces in the larger grid, that player wins" << endl;
 				break;
 			case 2:
 				break;
