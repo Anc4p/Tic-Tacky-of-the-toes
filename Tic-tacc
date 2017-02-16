@@ -17,8 +17,6 @@ void menu()
 {
 	int menuOption = 0;
 
-	menuText();
-
 	while (menuOption != 5)
 	{
 
@@ -54,13 +52,14 @@ void menu()
 		{
 			cout << "Error: Invalid Chocie" << endl;
 			cout << "Please enter a valid choice: " << endl;
-			cin >> menuOption;
+			menu();
 		}
 	}
 }
 
 int main()
 {
+	menuText();
 	menu();
 	return 0;
 }
