@@ -2,6 +2,26 @@
 #include <iomanip>
 using namespace std;
 
+void menu()
+{
+  int menuOption;
+  
+  while (menuOption != 4)
+  {
+    cout << "Welcome to Tic-Tacky-of-the-Toes" << endl;
+    cout << "Choose one of the following options:"<< endl;
+    cout << "1. Display Instructions" << endl;
+    cout << "2. Start Game" << endl;
+    cout << "3. Display version info" << endl;
+    cout << "4. Exit the program" << endl;
+    cin << menuOption
+  }
+  switch (menuOption)
+  {
+  case 1:
+  }
+}
+
 int main()
 {
 
