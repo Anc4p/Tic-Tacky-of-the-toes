@@ -19,7 +19,7 @@ void menu()
 
 	menuText();
 
-	while (menuOption != 4)
+	while (menuOption != 5)
 	{
 
 		cin >> menuOption;
@@ -46,7 +46,7 @@ void menu()
 			default:
 				cout << "Error: Invalid Chocie" << endl;
 				cout << "Please enter a valid choice: " << endl;
-				//cin >> menuOption;
+				cin >> menuOption;
 				break;
 			}
 		}
