@@ -12,6 +12,7 @@ public:
 	bool Victory;
 	char Victor;
 	char boardName;
+	int moveCount;
 
 	Board(char bn)
 	{
@@ -22,10 +23,16 @@ public:
 		Victory = false;
 		Victor = ' ';
 		boardName = bn;
+		int moveCount = 0;
 	}
 	
 	void makeMove(char p)
 	{
+		if (moveCount == 9)
+		{
+			cout << "The board is full: Tie Board" << endl;
+			return;
+		}
 		bool goodMove = false;
 		int move;
 		cout << "Please input your move" << endl;
@@ -46,9 +53,18 @@ public:
 			}
 			else
 			{
-				sb[move] = toupper(p);
-				goodMove = true;
-				checkVictor();
+				if (sb[move] == ' ')
+				{
+					sb[move] = toupper(p);
+					goodMove = true;
+					displayBoard(); //temp
+					checkVictor();
+					moveCount++;
+				}
+				else
+				{
+					cout << "Invalid Space: Space is taken" << endl;
+				}
 			}
 		}
 	}
@@ -61,13 +77,14 @@ public:
 			{
 				Victory = true;
 				Victor = 'X';
-				//displayBoard(); test idea
+				displayBoard();
 				cout << "X has won board " << boardName << "!" << endl;
 			}
 			else if (sb[0] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
+				displayBoard();
 				cout << "O has won board " << boardName << "!" << endl;
 			}
 		}
@@ -77,12 +94,14 @@ public:
 			{
 				Victory = true;
 				Victor = 'X';
+				displayBoard();
 				cout << "X has won board " << boardName << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
+				displayBoard();
 				cout << "O has won board " << boardName << "!" << endl;
 			}
 		}
@@ -92,12 +111,14 @@ public:
 			{
 				Victory = true;
 				Victor = 'X';
+				displayBoard();
 				cout << "X has won board " << boardName << "!" << endl;
 			}
 			else if (sb[6] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
+				displayBoard();
 				cout << "O has won board " << boardName << "!" << endl;
 			}
 		}
@@ -107,12 +128,14 @@ public:
 			{
 				Victory = true;
 				Victor = 'X';
+				displayBoard();
 				cout << "X has won board " << boardName << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
+				displayBoard();
 				cout << "O has won board " << boardName << "!" << endl;
 			}
 		}
@@ -122,12 +145,14 @@ public:
 			{
 				Victory = true;
 				Victor = 'X';
+				displayBoard();
 				cout << "X has won board " << boardName << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
+				displayBoard();
 				cout << "O has won board " << boardName << "!" << endl;
 			}
 		}
@@ -137,12 +162,14 @@ public:
 			{
 				Victory = true;
 				Victor = 'X';
+				displayBoard();
 				cout << "X has won board " << boardName << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
+				displayBoard();
 				cout << "O has won board " << boardName << "!" << endl;
 			}
 		}
@@ -152,12 +179,14 @@ public:
 			{
 				Victory = true;
 				Victor = 'X';
+				displayBoard();
 				cout << "X has won board " << boardName << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
+				displayBoard();
 				cout << "O has won board " << boardName << "!" << endl;
 			}
 		}
@@ -167,12 +196,14 @@ public:
 			{
 				Victory = true;
 				Victor = 'X';
+				displayBoard();
 				cout << "X has won board " << boardName << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
+				displayBoard();
 				cout << "O has won board " << boardName << "!" << endl;
 			}
 		}
@@ -191,7 +222,5 @@ public:
 		cout << "   " << sb[6] << "   |   " << sb[7] << "   |   " << sb[8] << "   " << endl;
 		cout << "       |       |       " << endl;
 	}
-
-	
 };
 #endif 
