@@ -1,6 +1,6 @@
-#define BoardArray
-#ifndef BoardArray
-class BoardArray
+#define Board
+#ifndef Board
+class Board
 {
 //test
 };
