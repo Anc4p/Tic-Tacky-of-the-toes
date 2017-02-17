@@ -18,6 +18,8 @@ int main()
 
 void menuText()
 {
+	system("cls");
+
 	cout << "Welcome to Tic-Tacky-of-the-Toes" << endl;
 	cout << "Choose one of the following options:" << endl;
 	cout << "1. Display Instructions" << endl;
