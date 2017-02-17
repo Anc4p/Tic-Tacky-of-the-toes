@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include "Board.h"
 
 using namespace std;
 
@@ -7,10 +8,12 @@ void menuText();
 void menu();
 void gameControl();
 
+
 int main()
 {
 	menu();
 	return 0;
+
 }
 
 void menuText()
@@ -24,23 +27,20 @@ void menuText()
 	cout << "5. Exit the program" << endl;
 }
 
-void gameControl()
-{
-	cout << "test" << endl;
-}
 void menu()
 {
 	int menuOption = 0;
-
+	
 	menuText();
-
+	
 	while (menuOption != 5)
 	{
 		cin >> menuOption;
-		if (cin.fail())
+		if (cin.fail()) //if input is invalid
 		{
-			cin.clear();
-			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cin.clear(); //clears input value
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignores character, allows new input via clearing out mem location
+			//causes stream size to be only numeric values, and ignores everything else, and only lets you put in numeric limits
 		}
 		switch (menuOption)
 		{
@@ -63,9 +63,33 @@ void menu()
 			return;
 			break;
 		default:
-			cout << "Error: Invalid Choice" << endl;
+			cout << "Error: Invalid Chocie" << endl;
 			cout << "Please enter a valid choice: " << endl;
 			break;
+		}
+	}
+}
+
+void gameControl()
+{
+	cout << "Game starting..." << endl;
+	Board b1('A');
+	b1.displayBoard();
+	while (b1.Victory == false)
+	{
+		if (b1.Victory == false)
+		{
+			cout << "Player X turn" << endl;
+			b1.makeMove('X');
+		}
+		if (b1.Victory == false)
+		{
+			cout << "Player O turn" << endl;
+			b1.makeMove('O');
+		}
+		else
+		{
+			return;
 		}
 	}
 }
