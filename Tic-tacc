@@ -40,9 +40,12 @@ void menu()
 		cin >> menuOption;
 		if (cin.fail()) //if input is invalid
 		{
+			system("cls");
 			cin.clear(); //clears input value
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignores character, allows new input via clearing out mem location
-			//causes stream size to be only numeric values, and ignores everything else, and only lets you put in numeric limits
+																		   //causes stream size to be only numeric values, and ignores everything else, and only lets you put in numeric limits
+			cout << "Invalid input\nPlease try again" << endl;
+			cin >> menuOption;
 		}
 		switch (menuOption)
 		{
