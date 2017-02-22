@@ -11,8 +11,14 @@ public:
 	char sb[9];
 	bool Victory;
 	char Victor;
-	char boardName;
+	int boardNumber;
 	int moveCount;
+	int lastMove;
+
+	Board()
+	{
+
+	}
 
 	Board(char bn)
 	{
@@ -22,11 +28,11 @@ public:
 		}
 		Victory = false;
 		Victor = ' ';
-		boardName = bn;
+		boardNumber = bn;
 		int moveCount = 0;
 	}
-	
-	void makeMove(char p)
+
+	void makeStandardMove(char p)
 	{
 		if (moveCount == 9)
 		{
@@ -36,7 +42,7 @@ public:
 		bool goodMove = false;
 		int move;
 		cout << "Please input your move" << endl;
-		
+
 		while (!goodMove)
 		{
 			cin >> move;
@@ -44,7 +50,7 @@ public:
 			{
 				cin.clear(); //clears input value
 				cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignores character, allows new input via clearing out mem location
-							//causes stream size to be only numeric values, and ignores everything else, and only lets you put in numeric limits
+																			   //causes stream size to be only numeric values, and ignores everything else, and only lets you put in numeric limits
 				cout << "Invalid Input: Please input a valid move: " << endl;
 			}
 			else if (move < 0 || move > 8)
@@ -55,9 +61,54 @@ public:
 			{
 				if (sb[move] == ' ')
 				{
+					lastMove = move;
 					sb[move] = toupper(p);
 					goodMove = true;
 					displayBoard(); //temp
+					checkVictor();
+					moveCount++;
+				}
+				else
+				{
+					cout << "Invalid Space: Space is taken" << endl;
+				}
+			}
+		}
+	}
+
+	void makeMove(char p)
+	{
+		if (moveCount == 9)
+		{
+			cout << "The board is full: Tie Board" << endl;
+			return;
+		}
+		bool goodMove = false;
+		int move;
+		cout << "Please input your move" << endl;
+
+		while (!goodMove)
+		{
+			cin >> move;
+			if (cin.fail()) //if input is invalid
+			{
+				cin.clear(); //clears input value
+				cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignores character, allows new input via clearing out mem location
+																			   //causes stream size to be only numeric values, and ignores everything else, and only lets you put in numeric limits
+				cout << "Invalid Input: Please input a valid move: " << endl;
+			}
+			else if (move < 0 || move > 8)
+			{
+				cout << "Invalid Input: Please input a valid move: " << endl;
+			}
+			else
+			{
+				if (sb[move] == ' ')
+				{
+					lastMove = move;
+					sb[move] = toupper(p);
+					goodMove = true;
+					displayEnhancedBoard(); //temp
 					checkVictor();
 					moveCount++;
 				}
@@ -78,14 +129,14 @@ public:
 				Victory = true;
 				Victor = 'X';
 				displayBoard();
-				cout << "X has won board " << boardName << "!" << endl;
+				cout << "X has won board " << boardNumber << "!" << endl;
 			}
 			else if (sb[0] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
 				displayBoard();
-				cout << "O has won board " << boardName << "!" << endl;
+				cout << "O has won board " << boardNumber << "!" << endl;
 			}
 		}
 		else if (sb[3] == sb[4] && sb[3] == sb[5]) //Row 2 Victory
@@ -95,14 +146,14 @@ public:
 				Victory = true;
 				Victor = 'X';
 				displayBoard();
-				cout << "X has won board " << boardName << "!" << endl;
+				cout << "X has won board " << boardNumber << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
 				displayBoard();
-				cout << "O has won board " << boardName << "!" << endl;
+				cout << "O has won board " << boardNumber << "!" << endl;
 			}
 		}
 		else if (sb[6] == sb[7] && sb[6] == sb[8]) //Row 3 Victory
@@ -112,14 +163,14 @@ public:
 				Victory = true;
 				Victor = 'X';
 				displayBoard();
-				cout << "X has won board " << boardName << "!" << endl;
+				cout << "X has won board " << boardNumber << "!" << endl;
 			}
 			else if (sb[6] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
 				displayBoard();
-				cout << "O has won board " << boardName << "!" << endl;
+				cout << "O has won board " << boardNumber << "!" << endl;
 			}
 		}
 		else if (sb[0] == sb[3] && sb[0] == sb[6]) //Column 1 Victory
@@ -129,14 +180,14 @@ public:
 				Victory = true;
 				Victor = 'X';
 				displayBoard();
-				cout << "X has won board " << boardName << "!" << endl;
+				cout << "X has won board " << boardNumber << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
 				displayBoard();
-				cout << "O has won board " << boardName << "!" << endl;
+				cout << "O has won board " << boardNumber << "!" << endl;
 			}
 		}
 		else if (sb[1] == sb[4] && sb[1] == sb[7]) //Column 2 Victory
@@ -146,14 +197,14 @@ public:
 				Victory = true;
 				Victor = 'X';
 				displayBoard();
-				cout << "X has won board " << boardName << "!" << endl;
+				cout << "X has won board " << boardNumber << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
 				displayBoard();
-				cout << "O has won board " << boardName << "!" << endl;
+				cout << "O has won board " << boardNumber << "!" << endl;
 			}
 		}
 		else if (sb[2] == sb[5] && sb[2] == sb[8]) //Column 3 Victory
@@ -163,14 +214,14 @@ public:
 				Victory = true;
 				Victor = 'X';
 				displayBoard();
-				cout << "X has won board " << boardName << "!" << endl;
+				cout << "X has won board " << boardNumber << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
 				displayBoard();
-				cout << "O has won board " << boardName << "!" << endl;
+				cout << "O has won board " << boardNumber << "!" << endl;
 			}
 		}
 		else if (sb[0] == sb[4] && sb[0] == sb[8]) //Diagonal 1 Victory
@@ -180,14 +231,14 @@ public:
 				Victory = true;
 				Victor = 'X';
 				displayBoard();
-				cout << "X has won board " << boardName << "!" << endl;
+				cout << "X has won board " << boardNumber << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
 				displayBoard();
-				cout << "O has won board " << boardName << "!" << endl;
+				cout << "O has won board " << boardNumber << "!" << endl;
 			}
 		}
 		else if (sb[2] == sb[4] && sb[2] == sb[6]) //Diagonal 2 Victory
@@ -197,16 +248,29 @@ public:
 				Victory = true;
 				Victor = 'X';
 				displayBoard();
-				cout << "X has won board " << boardName << "!" << endl;
+				cout << "X has won board " << boardNumber << "!" << endl;
 			}
 			else if (sb[3] == 'O')
 			{
 				Victory = true;
 				Victor = 'O';
 				displayBoard();
-				cout << "O has won board " << boardName << "!" << endl;
+				cout << "O has won board " << boardNumber << "!" << endl;
 			}
 		}
+	}
+
+	void displayEnhancedBoard()
+	{
+		cout << "       |       |       " << endl;
+		cout << "   " << sb[0] << "   |   " << sb[1] << "   |   " << sb[2] << "   " << endl;
+		cout << "_______|_______|_______" << endl;
+		cout << "       |       |       " << endl;
+		cout << "   " << sb[3] << "   |   " << sb[4] << "   |   " << sb[5] << "   " << endl;
+		cout << "_______|_______|_______" << endl;
+		cout << "       |       |       " << endl;
+		cout << "   " << sb[6] << "   |   " << sb[7] << "   |   " << sb[8] << "   " << endl;
+		cout << "       |       |       " << endl;
 	}
 
 	void displayBoard()
