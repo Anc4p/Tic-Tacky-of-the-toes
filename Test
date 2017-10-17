@@ -1,7 +1,0 @@
-#define Board
-#ifndef Board
-class Board
-{
-//test
-};
-#endif // !1
