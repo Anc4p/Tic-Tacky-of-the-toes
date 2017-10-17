@@ -1,0 +1,8 @@
+Version: 0.4; 7/17/2017
+-Created a separate file to store the game instructions
+Version: 0.3; 7/16/2017
+-Updated file structure of game, moved code to .cpp files
+Version: 0.20; 7/12/2017 (The day careers began)
+-Fixed game logic for enhanced game; enhanced game is now playable
+Version: 0.10; 2/17/17"
+-Created the game"
