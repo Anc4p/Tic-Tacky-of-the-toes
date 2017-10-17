@@ -1,0 +1,8 @@
+Standard Rules: 
+-Regular 3x3 tick tack toe game. First player to achieve three continuous spaces wins
+Enhanced Rules: 
+-The game is setup in a 3x3 grid full of smaller 3x3 grids.
+-The game begins with the first player choosing a board, and then a space on that board
+-Each subsequent placement will be in the board corresponding to where the previous player made their small-board move.
+ For example, player one makes a move in board 2, space 3. Player two will then make their move in any open space in board 3.
+-When a player successfully achieves a regular tick tack toe victory via winning 3 continous boards in the larger grid, that player wins
